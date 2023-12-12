@@ -1,0 +1,21 @@
+{
+  "api-call": {
+    "text": "Kamu bisa memanggil api dengan menggunakan mock api(npm run dev)",
+    "test": {
+      "get": "Test API Get",
+      "post": "Test API Post"
+    }
+  },
+  "hello-world": {
+    "docs": "Klik Vite dan Vue logo untuk mempelajari lebih lanjut"
+  },
+  "home-page": {
+    "title": "Ini adalah halaman utama",
+    "text": "Ubah components/HelloWorld.vue untuk test HMR"
+  },
+  "about-page": {
+    "title": "Ini adalah halaman about",
+    "card": "Ini adalah standalone projek template menggunakan Blue 3 DLS.",
+    "docs": "Lihat Dokumentasi"
+  }
+}

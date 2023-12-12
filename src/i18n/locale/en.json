@@ -1,0 +1,21 @@
+{
+  "api-call": {
+    "text": "You can do api call by using mock api(npm run dev)",
+    "test": {
+      "get": "Test API Get",
+      "post": "Test API Post"
+    }
+  },
+  "hello-world": {
+    "docs": "Click on the Vite and Vue logos to learn more"
+  },
+  "home-page": {
+    "title": "This is a Home page",
+    "text": "Edit components/HelloWorld.vue to test HMR"
+  },
+  "about-page": {
+    "title": "This is an About page",
+    "card": "This is a standalone template project using Blue 3 DLS.",
+    "docs": "View Documentation"
+  }
+}
