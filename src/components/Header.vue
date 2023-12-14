@@ -1,64 +1,53 @@
 <template>
-  <div class="titleBar">
-    <div class="innerBar">
-      <img :src="image" alt="Lodaing" />
-    </div>
-    <div class="searchBar">
-      <input
-        v-model="searchMessage"
-        type="text"
-        placeholder="Search"
-        class="searchInput"
-      />
-      <p>Search Message : {{ searchMessage }}{{title}}</p>
-    </div>
-    <div class="user">
-      <a :href="loginPath" @click="$emit('clicked-the-header',title)">Login</a>
-      <a :href="cartPath" @click="cartAlert">Cart</a>
-      <a v-if="login" :href="accountPath" @click="accountAlert">Account</a>
-      <a v-else :href="signIn">SignIn</a>
-    </div>
-  </div>
+    <nav>
+        <div class="search-bar">
+            <input type="text" v-model="searchMessage" placeholder="Search">
+        </div>
+        <a href="#">Login</a>
+        <a href="#" @click="onCartRender">Cart ({{cartList.length}})</a>
+        <a href="#" @click="onProductRender">Product List</a>
+    </nav>
 </template>
 
-<script src="./js/header.js"></script>
+<script src="./js/header.js">
+
+</script>
 
 <style scoped>
-.titleBar {
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 40px;
-  background-color: aquamarine;
-}
-.innerBar {
-  display: flex;
-  align-content: center;
-}
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-img {
-  width: 100px;
-  justify-content: center;
-  display: flex;
-  padding-left: 20px;
-}
-.searchBar {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-}
-input {
-  width: 40%;
-}
-p {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-.user {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-}
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .search-bar {
+            width: 60%;
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 5px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
 </style>
+

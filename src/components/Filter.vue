@@ -1,41 +1,43 @@
 <template>
-  <div class="filter">
-    <form>
-      <div class="innerFilter">
-        <label for="category">Category</label>
-        <input type="checkbox" id="category" v-model="category" />
-      </div>
-      <div class="innerFilter">
-        <label for="product">Product</label>
-        <input type="checkbox" id="product" v-model="product" />
-      </div>
-      <div class="innerFilter">
-        <label for="price">Price</label>
-        <input type="checkbox" id="price" v-model="price" />
-      </div>
-      <button :disabled="!isAlive" @click="filterSubmit">Submit</button>
+    <form id="filter-form" class="filterBox">
+      
+        <label for="category">Category:</label>
+        <label><input type="checkbox" id="category1" v-model="electronic" >Electronics</label>
+        <label><input type="checkbox" id="category2" v-model="cloths">Clothing</label>
+        <label><input type="checkbox" id="category3" v-model="shoe">Shoes</label>
+        <label><input ref="watchRef" type="checkbox" id="category4" v-model="watches">Watch</label>
+
+        <!-- <label v-for="(checkList,index) in checkBoxList" :key="index">
+          <input type="checkbox" name="category" :value="checkList.values">{{checkList.display}}</label> -->
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <br>
+        <label>Price Range:</label>
+        <label><input type="radio" name="price-range" value="0-50">0 - 50</label>
+        <label><input type="radio" name="price-range" value="50-100">50 - 100</label>
+        <label><input type="radio" name="price-range" value="100-200">100 - 200</label>
+        <br>
+        <!-- <button type="button" class="filterButton" @click="filterProducts">Clear Filter</button> -->
     </form>
-  </div>
 </template>
 
-<script src="./js/filter.js"></script>
+<script src="./js/filter.js">
+
+</script>
 
 <style scoped>
-.filter {
-  width: 27%;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  /* display: flex;
-    align-items: center;
-    justify-content: center; */
+form{
+    display: flex;
+    flex-direction: column;
 }
-.innerFilter {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: row-reverse;
-  width: 150px;
+.filterButton{
+  width: 30%;
+  border-radius: 10px;
 }
-button {
-  width: 50%;
+.filterBox{
+  border: 3px solid black;
+  padding: 22px;
+  border-radius: 15px;
 }
 </style>

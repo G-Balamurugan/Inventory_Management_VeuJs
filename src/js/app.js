@@ -1,12 +1,12 @@
 import image from "@/assets/images/tree-logo.jpg";
 import HeaderComponent from "@/components/Header.vue";
 import FilterComponent from "@/components/Filter.vue";
-import ProductList from '@/components/ProductList.vue'
+import ProductList from '@/components/ProductList.vue';
 export default {
   components: {
     HeaderComponent,
     FilterComponent,
-    ProductList
+    ProductList,
   },
   data() {
     return {
@@ -82,5 +82,5 @@ export default {
     addToCart(name) {
       alert("Product " + name + " added to Cart");
     },
-  },
+},
 };

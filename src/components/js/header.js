@@ -1,31 +1,22 @@
-import image from '@/assets/images/tree-logo.jpg'
+import { mapActions, mapState, mapWritableState } from "pinia";
+import { getAllProducts } from "@/stores/product-list-store.js";
 export default{
     data() {
         return {
-          
-            image,
-            loginPath:"",
-            cartPath:"",
-            accountPath:"",
-            signIn:"",
-            searchMessage:''
+            searchMessage : ''
         }
     },
-    computed:
-    {
-        loginAlert()
+    computed: {
+        ...mapState(getAllProducts, ["cartList","cartItems"]),
+      },
+      methods: {
+        onCartRender()
         {
-        alert("Login Page")
+            this.$router.push("/cart")
         },
-        cartAlert()
+        onProductRender()
         {
-        alert("Cart Page")
-        },
-        accountAlert()
-        {
-        alert("Account Page")
+            this.$router.push("/")
         }
     },
-    props:['title'],
-    emits:['clicked-the-header']
 }

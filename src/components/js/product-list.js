@@ -1,68 +1,41 @@
-import image from "@/assets/images/tree-logo.jpg";
-export default{
-    data(){
-        return{
-            buyPath:'',
-            productDetails: [
-                {
-                image,
-                name: "Iphone",
-                buyEnable: false,
-                price: "$450",
-                },
-                {
-                image,
-                name: "Macbook",
-                buyEnable: false,
-                price: "$999",
-                },
-                {
-                image,
-                name: "Tab",
-                buyEnable: false,
-                price: "$100",
-                },
-                {
-                image,
-                name: "Watch",
-                buyEnable: false,
-                price: "$200",
-                },
-            ]
-        }
-    },computed: {
-        filterSubmit() {
-          alert(" Filter Applied");
-          //Api can be Invoked
-        },
-        productName: {
-          get(index, fieldName) {
-            // common get function to collect all fiedls of productDetails
-            return this.productDetails[index][fieldName];
-          },
-          set(newValue, fieldName, index) {
-            // common set function to update all fields of prodcutDetails
-            this.productDetails[index][fieldName] = newValue;
-          },
-        },
-        isAlive() {
-          // isActive = this.category || this.product || this.price,
-          // return this.isActive && !this.error,
-          return this.category || this.product || this.price;
-        },
-      },
-      methods: {
-        say(message) {
-          alert(message);
-        },
-        mouseover(index) {
-          this.productDetails[index].buyEnable = true;
-        },
-        mouseleave(index) {
-          this.productDetails[index].buyEnable = false;
-        },
-        addToCart(name) {
-          alert("Product " + name + " added to Cart");
-        },
-      },
-}
+// import image from "@/assets/images/tree-logo.jpg";
+
+import { mapActions, mapState, mapWritableState } from "pinia";
+import { getAllProducts } from "@/stores/product-list-store.js";
+export default {
+  // methods {
+
+  // }
+  // created()
+  // {
+
+  // },
+  data() {
+    return {
+      pointCard : "notPointed"
+    };
+  },
+  computed: {
+    ...mapState(getAllProducts, ["productDetails", "cartList"]),
+  },
+  methods: {
+    ...mapActions(getAllProducts, ["addToCartList"]),
+    mouseOver(index) {
+      this.productDetails[index].productPointed = "pointed"
+    },
+    mouseLeave(index) {
+      this.productDetails[index].productPointed = "notPointed" 
+    },
+    increaseQuantity(index) {
+      this.productDetails[index].quantity++;
+    },
+    decreaseQuantity(index) {
+      if(this.productDetails[index].quantity > 1)
+      this.productDetails[index].quantity--;
+    },
+    cartAppend(product) {
+      this.addToCartList(product);
+      alert("Item "+product.name+" Added to Cart")
+    },
+  },
+};
