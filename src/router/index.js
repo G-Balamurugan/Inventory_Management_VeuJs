@@ -2,10 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ProductList from '@/components/ProductList.vue'
 import filter from '@/components/Filter.vue'
 import cart from '../pages/Cart.vue'
-// import { app, pages } from '@/config'
-// import HomePage from '@/pages/HomePage.vue'
-
-// const AboutPage = () => import(/* webpackChunkName: "p-about" */ '@/pages/AboutPage.vue')
+import addProductForm from '../pages/AddProductForm.vue'
+import updateProductForm from '../pages/UpdateProductForm.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,6 +22,16 @@ const router = createRouter({
       path: "/filter",
       name: "filter",
       component: filter
+    },
+    {
+      path: "/add/product",
+      name: "add-product",
+      component: addProductForm
+    },
+    {
+      path: "/update/product",
+      name: "update-product",
+      component: updateProductForm
     }
   ]
 })

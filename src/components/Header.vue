@@ -6,6 +6,7 @@
         <a href="#">Login</a>
         <a href="#" @click="onCartRender">Cart ({{cartList.length}})</a>
         <a href="#" @click="onProductRender">Product List</a>
+        <a href="#" @click="onProductAdd">Add Product</a>
     </nav>
 </template>
 
